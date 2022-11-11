@@ -24,7 +24,7 @@
                             tabindex="0">
                         <a href="#" onclick="return false;" class="btn-primary btn-search-close js-waves-off"
                             data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar">
-                            <iconify-icon icon="bx:down-arrow" style="color: white;" width="10" height="10">
+                            <iconify-icon icon="bx:up-arrow" style="color: white;" width="10" height="10">
                             </iconify-icon>
                         </a>
                     </div>
@@ -44,17 +44,20 @@
                         class="cover" alt="cover">
                     <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle"
                         data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
-                        <iconify-icon icon="bx:down-arrow" style="color: white;" width="10" height="10">
-                        </iconify-icon>
+                        <iconify-icon icon="bxs:down-arrow" style="color: white;" width="10" height="10"></iconify-icon>
                     </a>
                 </div>
                 <ul id="js-nav-menu" class="nav-menu js-nav-built">
                     <li class="">
                         <a title="Application Intel" data-filter-tags="application intel" aria-expanded="true"
                             class=" waves-effect waves-themed">
-                            <i class="fal fa-info-circle"></i>
-                            <span class="nav-link-text" data-i18n="nav.application_intel">Form Validation</span>
-                            <b class="collapse-sign"><em class="fal fa-angle-up"></em></b></a>
+                            <iconify-icon icon="fa:user-secret" width="15" height="15"></iconify-icon>
+                            <span class="nav-link-text mx-3" data-i18n="nav.application_intel">Form Validation</span>
+                            <b class="collapse-sign">
+                                <iconify-icon icon="ep:arrow-down" style="color: white;" width="10" height="10">
+                                </iconify-icon>
+                            </b>
+                        </a>
                         <ul>
                             <li class="active">
                                 <a href="smart-validation" title="Analytics Dashboard"
@@ -105,21 +108,10 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title=""
                             data-original-title="Chat logs">
-                            <i class="fal fa-comments"></i>
+                            <iconify-icon icon="icon-park-outline:logout" width="25" height="25"></iconify-icon>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title=""
-                            data-original-title="Support Chat">
-                            <i class="fal fa-life-ring"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title=""
-                            data-original-title="Make a call">
-                            <i class="fal fa-phone"></i>
-                        </a>
-                    </li>
+
                 </ul>
             </div> <!-- END NAV FOOTER -->
         </aside>

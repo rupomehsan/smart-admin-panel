@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource("smart_validation", SmartFormValidation::class);
+Route::post("file-upload", [SmartFormValidation::class, "fileUploader"]);

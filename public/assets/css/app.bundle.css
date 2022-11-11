@@ -7721,3 +7721,11 @@ body:not(.mobile-detected)::-webkit-scrollbar-thumb:vertical:hover {
         display: table;
     }
 }
+
+
+.header-icon iconify-icon{
+    margin-top: 20px;
+}
+.shortcut-menu iconify-icon{
+    margin-top: 10px;
+}

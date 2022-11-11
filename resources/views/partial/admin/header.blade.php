@@ -9,19 +9,28 @@
     <meta name="description" content="Analytics Dashboard">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}" /> -->
     <!-- Call App Mode on ios devices -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Remove Tap Highlight on Windows Phone IE -->
     <meta name="msapplication-tap-highlight" content="no">
-    <!-- base css -->
-    <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/vendors.bundle.css")}}">
-    <link id="appbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/app.bundle.css")}}">
-    <link id="mytheme" rel="stylesheet" media="screen, print" href="#">
-    <link id="myskin" rel="stylesheet" media="screen, print" href="{{asset("assets/css/skins/skin-master.css")}}">
+    <!-- Datetime-picker -->
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <!-- multiple selector select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <!-- base css -->
+    <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/vendors.bundle.css")}}">
+    <link id="appbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/app.bundle.css")}}">
+    <link id="mytheme" rel="stylesheet" media="screen, print" href="#">
+    <link id="myskin" rel="stylesheet" media="screen, print" href="{{asset("assets/css/skin-master.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/toastr.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/sumoselect.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+
 </head>
 
 <body class="mod-bg-1 mod-nav-link desktop chrome webkit pace-done" cz-shortcut-listen="true">
@@ -103,19 +112,21 @@
         <div class="hidden-md-down dropdown-icon-menu position-relative">
             <a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden"
                 title="Hide Navigation">
-                <i class="ni ni-menu"></i>
+                <iconify-icon icon="eva:menu-outline" width="25" height="25" class="mt-1"></iconify-icon>
             </a>
             <ul>
                 <li>
                     <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify"
                         title="Minify Navigation">
-                        <i class="ni ni-minify-nav"></i>
+                        <iconify-icon icon="icon-park-twotone:menu-unfold-one" width="25" height="25"
+                            style="margin:5px ;"></iconify-icon>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed"
                         title="Lock Navigation">
-                        <i class="ni ni-lock-nav"></i>
+                        <iconify-icon icon="flat-color-icons:lock" width="25" height="25" style="margin-top: 5px;">
+                        </iconify-icon>
                     </a>
                 </li>
             </ul>
@@ -128,7 +139,7 @@
             </a>
         </div>
         <div class="search">
-            <form class="app-forms hidden-xs-down" role="search" action="page_search.html" autocomplete="off">
+            <form class="app-forms hidden-xs-down border" role="search" action="page_search.html" autocomplete="off">
                 <input type="text" id="search-field" placeholder="Search for anything" class="form-control"
                     tabindex="1">
                 <a href="#" onclick="return false;" class="btn-danger btn-search-close js-waves-off d-none"
@@ -148,13 +159,13 @@
             <!-- app settings -->
             <div class="hidden-md-down">
                 <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
-                    <i class="fal fa-cog"></i>
+                    <iconify-icon icon="bytesize:settings" width="25" height="25"></iconify-icon>
                 </a>
             </div>
             <!-- app shortcuts -->
             <div>
                 <a href="#" class="header-icon" data-toggle="dropdown" title="My Apps">
-                    <i class="fal fa-cube"></i>
+                    <iconify-icon icon="ic:sharp-app-shortcut" width="25" height="25"></iconify-icon>
                 </a>
                 <div class="dropdown-menu dropdown-menu-animated w-auto h-auto">
                     <div
@@ -331,14 +342,12 @@
                 </div>
             </div>
             <!-- app message -->
-            <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-messenger">
-                <i class="fal fa-globe"></i>
-                <span class="badge badge-icon">!</span>
-            </a>
+
             <!-- app notification -->
             <div>
                 <a href="#" class="header-icon" data-toggle="dropdown" title="You got 11 notifications">
-                    <i class="fal fa-bell"></i>
+                    <iconify-icon icon="material-symbols:circle-notifications-outline-sharp" width="25" height="25">
+                    </iconify-icon>
                     <span class="badge badge-icon">11</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-animated dropdown-xl">

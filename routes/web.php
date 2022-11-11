@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ Route::prefix('admin')->group(function () {
     Route::view("dashboard", "admin.dashboard.index");
     Route::view("smart-validation", "admin.smart_validation.index");
 });
+
+Route::redirect("/", "admin/dashboard");

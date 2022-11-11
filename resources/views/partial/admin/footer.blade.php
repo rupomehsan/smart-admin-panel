@@ -2,22 +2,12 @@
 <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
 <!-- END Page Content -->
 <!-- BEGIN Page Footer -->
-<footer class="page-footer" role="contentinfo">
-    <div class="d-flex align-items-center flex-1 text-muted">
+<footer class="page-footer text-center" role="contentinfo">
+    <div class="d-flex align-items-center flex-1 text-muted justify-content-center">
         <span class="hidden-md-down fw-700">2020 © SmartAdmin by&nbsp;<a href="https://www.gotbootstrap.com"
-                class="text-primary fw-500" title="gotbootstrap.com" target="_blank">gotbootstrap.com</a></span>
+                class="text-primary fw-500" title="mdrupomehsan.com" target="_blank">RupomEhsan</a></span>
     </div>
-    <div>
-        <ul class="list-table m-0">
-            <li><a href="intel_introduction.html" class="text-secondary fw-700">About</a></li>
-            <li class="pl-3"><a href="info_app_licensing.html" class="text-secondary fw-700">License</a>
-            </li>
-            <li class="pl-3"><a href="info_app_docs.html" class="text-secondary fw-700">Documentation</a>
-            </li>
-            <li class="pl-3 fs-xl"><a href="https://wrapbootstrap.com/user/MyOrange" class="text-secondary"
-                    target="_blank"><i class="fal fa-question-circle" aria-hidden="true"></i></a></li>
-        </ul>
-    </div>
+
 </footer>
 <!-- END Page Footer -->
 
@@ -100,24 +90,18 @@
     </label>
     <a href="#" class="menu-item btn waves-effect waves-themed" data-toggle="tooltip" data-placement="left" title=""
         data-original-title="Scroll Top">
-        <i class="fal fa-arrow-up"></i>
+        <iconify-icon icon="bi:arrow-up-circle-fill" width="25" height="25"></iconify-icon>
     </a>
     <a href="page_login.html" class="menu-item btn waves-effect waves-themed" data-toggle="tooltip"
         data-placement="left" title="" data-original-title="Logout">
-        <i class="fal fa-sign-out"></i>
+        <iconify-icon icon="ant-design:logout-outlined" width="25" height="25"></iconify-icon>
     </a>
     <a href="#" class="menu-item btn waves-effect waves-themed" data-action="app-fullscreen" data-toggle="tooltip"
         data-placement="left" title="" data-original-title="Full Screen">
-        <i class="fal fa-expand"></i>
+        <iconify-icon icon="akar-icons:full-screen" width="25" height="25"></iconify-icon>
     </a>
-    <a href="#" class="menu-item btn waves-effect waves-themed" data-action="app-print" data-toggle="tooltip"
-        data-placement="left" title="" data-original-title="Print page">
-        <i class="fal fa-print"></i>
-    </a>
-    <a href="#" class="menu-item btn waves-effect waves-themed" data-action="app-voice" data-toggle="tooltip"
-        data-placement="left" title="" data-original-title="Voice command">
-        <i class="fal fa-microphone"></i>
-    </a>
+
+
 </nav>
 <!-- END Quick Menu -->
 <!-- BEGIN Messenger -->
@@ -146,7 +130,9 @@
                 </div>
                 <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2"
                     data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    <span aria-hidden="true">
+                        <iconify-icon icon="ant-design:close-circle-outlined" width="25" height="25"></iconify-icon>
+                    </span>
                 </button>
             </div>
             <div class="modal-body p-0 h-100 d-flex">
@@ -496,7 +482,9 @@
                 </h4>
                 <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2"
                     data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    <span aria-hidden="true">
+                        <iconify-icon icon="ant-design:close-circle-outlined" width="25" height="25"></iconify-icon>
+                    </span>
                 </button>
             </div>
             <div class="modal-body p-0">
