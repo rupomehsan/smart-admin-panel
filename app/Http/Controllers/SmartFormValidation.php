@@ -11,6 +11,7 @@ class SmartFormValidation extends Controller
 
     public function index()
     {
+        // dd("hi");
         $target = ModelsSmartFormValidation::paginate(20);
         return response([
             "status" => "success",
@@ -286,6 +287,99 @@ class SmartFormValidation extends Controller
             return response([
                 'status'  => 'server_error',
                 'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+
+    public function manageStatusApproval(Request $request)
+    {
+        $target = ModelsSmartFormValidation::where("id", $request->id)->first();
+        $target->status = $request->status;
+        $target->update();
+        return response([
+            "status" => "success",
+            "message" => "Status Succesfullly Update"
+        ]);
+    }
+
+
+    public function getDateWiseSearchData(Request $request)
+    {
+        try {
+            if ($request->value === "today") {
+                $getAllContest = ModelsSmartFormValidation::whereDate('created_at', today())->paginate(10);
+                if ($getAllContest) {
+                    return response([
+                        "status" => "success",
+                        "data" => $getAllContest
+                    ], 200);
+                }
+            } else if ($request->value === "last_day") {
+                $getAllContest = ModelsSmartFormValidation::whereDate('created_at', today()->subDay())->paginate(20);
+                if ($getAllContest) {
+                    return response([
+                        "status" => "success",
+                        "data" => $getAllContest
+                    ], 200);
+                }
+            } else if ($request->value === "last_week") {
+                $getAllContest = ModelsSmartFormValidation::whereDate('created_at', today()->subDays(7))->paginate(20);
+                if ($getAllContest) {
+                    return response([
+                        "status" => "success",
+                        "data" => $getAllContest
+                    ], 200);
+                }
+            } else if ($request->value === "last_month") {
+                $getAllContest = ModelsSmartFormValidation::whereMonth('created_at', today()->subMonth())->paginate(20);
+                if ($getAllContest) {
+                    return response([
+                        "status" => "success",
+                        "data" => $getAllContest
+                    ], 200);
+                }
+            } else if ($request->value === "last_year") {
+                $getAllContest = ModelsSmartFormValidation::whereYear('created_at', today()->subYear())->paginate(20);
+                if ($getAllContest) {
+                    return response([
+                        "status" => "success",
+                        "data" => $getAllContest
+                    ], 200);
+                }
+            } else {
+                return response([
+                    "status" => "error",
+                    "message" => "Data Not Found"
+                ], 200);
+            }
+        } catch (\Exception $e) {
+            return response([
+                "status" => "server_error",
+                "message" => $e
+            ], 500);
+        }
+    }
+    public function getSearchData(Request $request)
+    {
+        try {
+
+            $target = ModelsSmartFormValidation::where('first_name', 'LIKE', "%$request->value%")->paginate(10);
+            if ($target) {
+                return response([
+                    "status" => "success",
+                    "data" => $target
+                ], 200);
+            } else {
+                return response([
+                    "status" => "error",
+                    "message" => "Data Not Found"
+                ], 200);
+            }
+        } catch (\Exception $e) {
+            return response([
+                "status" => "server_error",
+                "message" => $e
             ], 500);
         }
     }

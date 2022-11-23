@@ -12,7 +12,7 @@
     <div class="index-menu border my-3 p-2 d-flex justify-content-between mx-2">
 
         <div class="search">
-            <input type="search" class="form-control" id="gsearch" name="gsearch">
+            <input type="search" class="form-control" id="search_data" name="search_data">
         </div>
         <div class="dropdown mx-2">
             <button class="btn border border-dark dropdown-toggle d-flex align-items-center" type="button"
@@ -22,21 +22,21 @@
                 Filter
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="javascript:void(0)"
-                    onclick="if (!window.__cfRLUnblockHandlers) return false; getSearchData('today')">Today</a>
-                <a class="dropdown-item" href="javascript:void(0)"
-                    onclick="if (!window.__cfRLUnblockHandlers) return false; getSearchData('last_day')">Last
-                    Day</a>
-                <a class="dropdown-item" href="javascript:void(0)"
-                    onclick="if (!window.__cfRLUnblockHandlers) return false; getSearchData('last_week')">Last
-                    Week</a>
-                <a class="dropdown-item" href="javascript:void(0)"
-                    onclick="if (!window.__cfRLUnblockHandlers) return false; getSearchData('last_month')">Last
-                    Month</a>
-                <a class="dropdown-item" href="javascript:void(0)"
-                    onclick="if (!window.__cfRLUnblockHandlers) return false; getSearchData('last_year')">Last
-                    Year</a>
+                <li class="dropdown-item search-data" target="today" href="javascript:void(0)">Today</li>
+                <li class="dropdown-item search-data" target="last_day" href="javascript:void(0)"
+                    onclick="getSearchData('last_day')">Last
+                    Day</li>
+                <li class="dropdown-item search-data" target="last_week" href="javascript:void(0)"
+                    onclick="getSearchData('last_week')">Last
+                    Week</li>
+                <li class="dropdown-item search-data" target="last_month" href="javascript:void(0)"
+                    onclick="getSearchData('last_month')">Last
+                    Month</li>
+                <li class="dropdown-item search-data" target="last_year" href="javascript:void(0)"
+                    onclick="getSearchData('last_year')">Last
+                    Year</li>
             </div>
+
         </div>
         <div class="add-item-section"><a href="smart-validation-create" class="btn btn-success">Add New Item</a></div>
     </div>
@@ -44,13 +44,14 @@
         <table class="table table-striped text-center">
             <thead>
                 <tr>
+                    <th style="width:10%;">Sl</th>
                     <th style="width:10%;">Firstname</th>
                     <th style="width:10%;">Lastname</th>
                     <th style="width:10%;">Email</th>
                     <th style="width:10%;">Phone</th>
                     <th style="width:10%;">Image</th>
                     <th style="width:10%;">Status</th>
-                    <th style="width:40%;">Action</th>
+                    <th style="width:30%;">Action</th>
                 </tr>
             </thead>
             <tbody id='data_list'>
@@ -70,8 +71,15 @@
 <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
 
 <script>
-let url = apiUrl + "smart_validation";;
+/**
+ * table generator; 
+ **/
+let url = apiUrl + "smart_validation";
 let headers = [{
+        title: 'Sl No',
+        field: 'id'
+    },
+    {
         title: 'First Name',
         field: 'first_name'
     },
@@ -116,6 +124,68 @@ let actions = [{
     }
 ]
 
-getTableData(url, "data_list", headers, actions);
+getAllData(url, "data_list", headers, actions);
+
+$(document).on("click", ".search-data", function() {
+    let data = $(this).attr("target");
+    let url = apiUrl + "get_date_wise_data"
+    getDateSearchData(url, data, "data_list", headers, actions)
+})
+$(document).on("keyup", "#search_data", function() {
+    let data = $(this).val();
+    let url = apiUrl + "get_search_data"
+    getSearchData(url, data, "data_list", headers, actions)
+})
+
+/**
+ * status controll; 
+ **/
+$(document).on("change", "#approval", function(e) {
+    e.preventDefault();
+    var options = {
+        closeButton: true,
+        debug: false,
+        positionClass: "toast-bottom-right",
+        onclick: null
+    };
+    var id = $(this).data('id');
+    // alert(id);
+    if ($(this).prop('checked')) {
+        var properties = 'active'
+        // alert(properties)
+    } else {
+        var properties = 'inactive'
+        //  alert(properties)
+    }
+
+    $.ajax({
+        url: apiUrl + "manage_status_approval",
+        type: "POST",
+        dataType: "json",
+        beforeSend: function() {
+            $("#preloader").removeClass('d-none');
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+            id: id,
+            status: properties,
+        },
+        success: function(res) {
+            if (res.status === "success") {
+                toastr.success(res.message);
+            }
+        },
+        error: function(jqXhr, ajaxOptions, thrownError) {
+            if (jqXhr.status == 422 && jqXhr.responseJSON.status == "error") {
+                toastr.error(jqXhr.responseJSON.message)
+            }
+        },
+        complete: function() {
+            $("#preloader").addClass('d-none');
+        }
+    }); //ajax
+});
 </script>
 @endpush

@@ -225,7 +225,7 @@ function getEditContent(pageId) {
     let container = document.getElementById(id)
     container.innerHTML = "";
     // console.log("my data",headers)
-    data.data.forEach(function (item) {
+    data.data.forEach(function (item,index) {
         
         let tableRow = document.createElement('tr')
 
@@ -259,6 +259,10 @@ function getEditContent(pageId) {
                         status.innerHTML = div
                         tableData.innerHTML=''
                         tableData.appendChild(status)
+                    }
+                    if(key==="id"){
+                        let sl = index+1
+                        tableData.innerHTML=sl
                     }
                     tableRow.appendChild(tableData)
                 }
@@ -305,9 +309,9 @@ function getEditContent(pageId) {
 }
 
 /**
- * GET Table Data
+ * GET all Data
  */
-function getTableData(url, id, headers, actions = [], searchData = null,) {
+function getAllData(url, id, headers, actions = [], searchData = null,) {
     $.ajax({
         type: 'GET',
          url: url, 
@@ -324,18 +328,73 @@ function getTableData(url, id, headers, actions = [], searchData = null,) {
                     response.data.prev_page_url
                 );
           
-                paginateItemClick(url,id, headers, actions,searchData);
+                paginateItemClick(url,id, headers, actions,searchData,'','getall');
             }
         }, error: function (xhr, resp, text) {
             console.log(xhr, resp)
         }
     });
 }
+/**
+ * GET date search Data
+ */
+function getDateSearchData(url,value,id, headers, actions = [], searchData = null,) {
 
-  // start
+    $.ajax({
+        method: "post",
+        url: url,
+        dataType: "json",
+        data: {"value": value},
+        success: function (response) {
+            if (response.status === 'success') {
+                let res = response.data
+                generateTable(id, headers, res, actions)
+                setPagination(
+                    response.data.total,
+                    response.data.per_page,
+                    response.data.current_page,
+                    response.data.next_page_url,
+                    response.data.prev_page_url
+                );
+                paginateItemClick(url,id, headers, actions,searchData,value,'searchDate');
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        },
+    
+    });
+    }
+function getSearchData(url,value,id, headers, actions = [], searchData = null,) {
+    $.ajax({
+        method: "post",
+        url: url,
+        dataType: "json",
+        data: {"value": value},
+        success: function (response) {
+            if (response.status === 'success') {
+                let res = response.data
+                generateTable(id, headers, res, actions)
+                setPagination(
+                    response.data.total,
+                    response.data.per_page,
+                    response.data.current_page,
+                    response.data.next_page_url,
+                    response.data.prev_page_url
+                );
+                paginateItemClick(url,id, headers, actions,searchData,value,'searchData');
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        },
+    
+    });
+    }
+
+        // start
         // pagination
         // start
-
         function setPagination(totalItem, perPageItem, currentPage,nextPage,prevPage) {
             let pages = Math.ceil(totalItem / perPageItem);
             let nextPageId = nextPage
@@ -364,18 +423,24 @@ function getTableData(url, id, headers, actions = [], searchData = null,) {
             `);
         }
 
-        function paginateItemClick(url,id, headers, actions,searchData) {
+        function paginateItemClick(url,id, headers, actions,searchData,value=null,setfunct) {
             let selectPage = 1;
             $(".page-item").click(function () {
                 selectPage = "?page="+$(this).attr("data-id");
                 var pageUrl = url+selectPage
                 var mainpage=  pageUrl.split('?')[0]
                 if(selectPage!=="null"){
-                    getTableData(mainpage+selectPage,id, headers, actions,searchData)
+                    if(setfunct==="getall"){
+                        getAllData(mainpage+selectPage,id, headers, actions,searchData)
+                    }else if(setfunct==="searchDate"){
+                        getDateSearchData(mainpage+selectPage,value,id, headers, actions,searchData)
+                    }else if(setfunct==="searchData"){
+                        getSearchData(mainpage+selectPage,value,id, headers, actions,searchData)
+                    }
+                   
                 }
             });
         }
-
 
         // end
         // pagination
