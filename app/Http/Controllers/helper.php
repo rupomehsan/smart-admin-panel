@@ -6,7 +6,7 @@ if (!function_exists('validateError')) {
         //        dd($errors);
         $messages = [];
         foreach ($errors as $key => $value) {
-            //            dd($errors);
+            // dd($errors);
             array_push($messages, [
                 'field' => $key,
                 'error' => $value[0],

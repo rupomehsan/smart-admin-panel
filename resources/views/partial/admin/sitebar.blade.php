@@ -60,7 +60,7 @@
                         </a>
                         <ul>
                             <li class="active">
-                                <a href="smart-validation" title="Analytics Dashboard"
+                                <a href="{{url('admin/smart-validation')}}" title="Analytics Dashboard"
                                     data-filter-tags="application intel analytics dashboard"
                                     class=" waves-effect waves-themed">
                                     <span class="nav-link-text"

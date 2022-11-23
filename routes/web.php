@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
     Route::view("dashboard", "admin.dashboard.index");
     Route::view("smart-validation", "admin.smart_validation.index");
+    Route::view("smart-validation-create", "admin.smart_validation.create");
+    Route::view("smart-validation-edit/{id}", "admin.smart_validation.edit");
 });
 
 Route::redirect("/", "admin/dashboard");

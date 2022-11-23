@@ -107,10 +107,11 @@
 }
 
 /* Drag Image */
-
+/* Drag Image */
+/* Drag Image */
 .file-upload {
   /*background-color: #ffffff;*/
-  width: 40%;
+  width: 100%;
   text-align: right;
 }
 
@@ -195,94 +196,14 @@
   transition: all 0.2s ease;
 }
 
-/* Second image in one page */
-
-.file-upload-sec {
-  background-color: #ffffff;
-  width: 40%;
-  text-align: right;
-}
-
-.image-upload-wrap-sec {
-  border: 1px dashed #585757;
-  border-radius: 10px;
-  position: relative;
-  height: 100%;
-}
-
-.file-upload-input-sec {
-  left: 0;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.drag-text-sec span {
-  color: #939191;
-}
-
-.drag-text-sec svg.iconify {
-  width: 70px;
-  height: 70px;
-  color: #c7c7c7;
-  padding: 10px;
-  /* font-size: 124px; */
-}
-
-.file-upload-content-sec {
-  display: none;
-  text-align: center;
-}
-
-button.remove-image-sec {
-  position: relative;
-  top: -130px;
-  left: 60px;
-  background: #00000033;
-}
-
-.image-upload-wrap-sec:hover {
-  border: 2px dashed green;
-}
-
-.remove-image-sec {
-  color: #fff;
-  background: #cb7267;
-  border: none;
-  /* padding: 10px; */
-  border-radius: 4px;
-  position: absolute;
-}
-
-.file-upload-image-sec {
-  max-height: 200px;
-  max-width: 200px;
-  margin: auto;
-  padding: 20px;
-}
-
-.remove-image-sec:hover {
-  background: #c13b2a;
-  color: #ffffff;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.remove-image-sec:active {
-  border: 0;
-  transition: all 0.2s ease;
-}
-
+/*Edit Drag Image */
+/*Edit Drag Image */
 /*Edit Drag Image */
 
 .file-upload-edit {
   background-color: #ffffff;
   width: 40%;
+  max-height: 200px;
   text-align: right;
 }
 
@@ -321,6 +242,7 @@ button.remove-image-sec {
 .file-upload-content-edit {
   /* display: none; */
   text-align: center;
+  position: relative;
 }
 
 .image-upload-wrap-edit:hover {
@@ -328,10 +250,10 @@ button.remove-image-sec {
 }
 
 button.remove-image-edit {
-  position: relative;
-  top: -130px;
-  left: 60px;
-  background: #00000033;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff7676;
 }
 
 .remove-image-edit {
@@ -347,7 +269,7 @@ button.remove-image-edit {
   max-width: 200px;
   margin: auto;
   padding: 20px;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 .remove-image-edit:hover {
   background: #c13b2a;
@@ -361,6 +283,96 @@ button.remove-image-edit {
   transition: all 0.2s ease;
 }
 
+/* Second image in one page */
+/* Second image in one page */
+/* Second image in one page */
+
+.file-upload-sec {
+  background-color: #58575700;
+  width: 100%;
+  text-align: right;
+}
+
+.image-upload-wrap-sec {
+  border: 1px dashed #585757;
+    border-radius: 10px;
+    position: relative;
+    height: 140px;
+    width: 100%;
+}
+
+.file-upload-input-sec {
+  left: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.drag-text-sec span {
+  color: #939191;
+}
+
+.drag-text-sec svg.iconify {
+  width: 70px;
+  height: 70px;
+  color: #c7c7c7;
+  padding: 10px;
+  /* font-size: 124px; */
+}
+
+.file-upload-content-sec {
+  display: none;
+  text-align: center;
+  position: relative;
+}
+
+button.remove-image-sec {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #00000033;
+}
+
+.image-upload-wrap-sec:hover {
+  border: 2px dashed green;
+}
+
+.remove-image-sec {
+  color: #fff;
+  background: #cb7267 !important;
+  border: none;
+  /* padding: 10px; */
+  border-radius: 4px;
+  position: absolute;
+}
+
+.file-upload-image-sec {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid gray;
+}
+
+.remove-image-sec:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.remove-image-sec:active {
+  border: 0;
+  transition: all 0.2s ease;
+}
+
+/* edit second */
+/* edit second */
 /* edit second */
 
 .file-upload-edit-sec {
@@ -404,6 +416,7 @@ button.remove-image-edit {
 .file-upload-content-edit-sec {
   /* display: none; */
   text-align: center;
+  position: relative;
 }
 
 .image-upload-wrap-edit-sec:hover {
@@ -411,10 +424,10 @@ button.remove-image-edit {
 }
 
 button.remove-image-edit-sec {
-  position: relative;
-  top: -130px;
-  left: 60px;
-  background: #00000033;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff5c5c;
 }
 
 .remove-image-edit-sec {
@@ -444,4 +457,6 @@ button.remove-image-edit-sec {
   transition: all 0.2s ease;
 }
 
-/* End:: drag image */
+/* End:: second drag image */
+/* End:: second drag image */
+/* End:: second drag image */

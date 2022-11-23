@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class SmartFormValidation extends Model
 {
     use HasFactory;
-    protected $guarder = [];
+    protected $guarded = [];
+    protected $casts = [
+        "single_item" => "array",
+        "multi_item" => "array",
+        "multi_category_selector" => "array",
+        "chips" => "array",
+        "multi_chips_select" => "array",
+        "days" => "array",
+    ];
 }
