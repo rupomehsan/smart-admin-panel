@@ -29,6 +29,7 @@
     <link id="myskin" rel="stylesheet" media="screen, print" href="{{asset("assets/css/skin-master.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/toastr.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/sumoselect.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/daterangepicker.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
 
 </head>

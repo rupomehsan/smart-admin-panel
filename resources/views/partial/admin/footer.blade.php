@@ -906,7 +906,14 @@
 /* Activate smart panels */
 $('#js-page-content').smartPanel();
 $("#js-nav-menu li").click(function() {
-    $(this).toggleClass("active", 400)
+    if ($(this).hasClass('active')) {
+        $(this).removeClass("active")
+    } else {
+        $(this).addClass("active").css({
+            transition: '1s ease-in-out'
+        });
+    }
+
 })
 </script>
 

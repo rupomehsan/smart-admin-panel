@@ -262,7 +262,9 @@ function getEditContent(pageId) {
                     }
                     if(key==="id"){
                         let sl = index+1
-                        tableData.innerHTML=sl
+                        let cehkbox = `<input type="checkbox" class="checkbox-item" name="" value="${item.id}"/> ${sl}`
+                        tableData.innerHTML=cehkbox
+                       
                     }
                     tableRow.appendChild(tableData)
                 }
@@ -365,6 +367,39 @@ function getDateSearchData(url,value,id, headers, actions = [], searchData = nul
     
     });
     }
+/**
+ * GET date search Data
+ */
+function getDateRangeSearchData(url,value,id, headers, actions = [], searchData = null,) {
+
+    $.ajax({
+        method: "post",
+        url: url,
+        dataType: "json",
+        data: {"value": value},
+        success: function (response) {
+            if (response.status === 'success') {
+                let res = response.data
+                generateTable(id, headers, res, actions)
+                setPagination(
+                    response.data.total,
+                    response.data.per_page,
+                    response.data.current_page,
+                    response.data.next_page_url,
+                    response.data.prev_page_url
+                );
+                paginateItemClick(url,id, headers, actions,searchData,value,'searchDateRange');
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        },
+    
+    });
+    }
+  /**
+ * GET  search Data
+ */  
 function getSearchData(url,value,id, headers, actions = [], searchData = null,) {
     $.ajax({
         method: "post",
@@ -436,6 +471,8 @@ function getSearchData(url,value,id, headers, actions = [], searchData = null,) 
                         getDateSearchData(mainpage+selectPage,value,id, headers, actions,searchData)
                     }else if(setfunct==="searchData"){
                         getSearchData(mainpage+selectPage,value,id, headers, actions,searchData)
+                    }else if(setfunct==="searchDateRange"){
+                        getDateRangeSearchData(mainpage+selectPage,value,id, headers, actions,searchData)
                     }
                    
                 }

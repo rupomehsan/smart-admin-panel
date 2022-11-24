@@ -7,7 +7,10 @@
         <div class="d-flex">
             <li class="breadcrumb-item"><a href="javascript:void(0);">SmartAdmin</a></li>
             <li class="breadcrumb-item">Smart Validation</li>
+            <li class="breadcrumb-item">(Custom crud operation)</li>
         </div>
+        <div class="add-item-section"><a href="smart-validation-create" class="btn btn-success">Add New Item</a></div>
+
     </ol>
     <div class="index-menu border my-3 p-2 d-flex justify-content-between mx-2">
 
@@ -21,7 +24,7 @@
                 </iconify-icon>
                 Filter
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu form-control" aria-labelledby="dropdownMenuButton">
                 <li class="dropdown-item search-data" target="today" href="javascript:void(0)">Today</li>
                 <li class="dropdown-item search-data" target="last_day" href="javascript:void(0)"
                     onclick="getSearchData('last_day')">Last
@@ -38,13 +41,19 @@
             </div>
 
         </div>
-        <div class="add-item-section"><a href="smart-validation-create" class="btn btn-success">Add New Item</a></div>
+
+        <div id="reportrange" class="d-flex align-items-center px-2"
+            style="background: #fff; cursor: pointer; border: 1px solid #ccc; width: 30%">
+            <iconify-icon icon="simple-line-icons:calender"></iconify-icon>
+            <input type="datetime" class=" form-control border-0 " id="dateRangePicker" />
+            <iconify-icon icon="material-symbols:arrow-drop-down-circle"></iconify-icon>
+        </div>
     </div>
     <div class="border-top">
         <table class="table table-striped text-center">
             <thead>
                 <tr>
-                    <th style="width:10%;">Sl</th>
+                    <th style="width:10%;"> <input type="checkbox" title="Select all" class="all-checker"> Sl</th>
                     <th style="width:10%;">Firstname</th>
                     <th style="width:10%;">Lastname</th>
                     <th style="width:10%;">Email</th>
@@ -69,8 +78,82 @@
 <script src="{{asset('validation/apiUrl.js')}}"></script>
 <script src="{{asset('validation/smartValidation.js')}}"></script>
 <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
-
+<!-- daterangepicker -->
+<script src="{{asset('assets/js/moment.min.js')}}"></script>
+<script src="{{asset('assets/js/daterangepicker.js')}}"></script>
 <script>
+var checkLIstArray = []
+$(document).on("click", ".all-checker", function() {
+    if ($(this).prop("checked") === true) {
+        $(".checkbox-item").prop('checked', true)
+        UpdatecheckList()
+
+        console.log(checkLIstArray)
+    } else {
+        $(".checkbox-item").prop('checked', false)
+        UpdatecheckList()
+        checkLIstArray = []
+        console.log(checkLIstArray)
+    }
+})
+
+$(document).on("click", ".checkbox-item", function() {
+    alert($(this).val())
+})
+
+function UpdatecheckList() {
+    var checkItem = document.querySelectorAll('.checkbox-item');
+    checkItem.forEach(function(item) {
+        if (item.checked) {
+            var value = item.value
+            checkLIstArray.push(value)
+        }
+
+    })
+}
+
+
+
+
+
+
+
+/**
+ *daterangepicker; 
+ **/
+$(function() {
+    var start = moment();
+    var end = moment();
+
+    function cb(start, end) {
+        $('#dateRangePicker').val(start.format('MMMM D, YYYY') + '-' + end.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                .endOf('month')
+            ],
+            'This Year': [moment().startOf('year'), moment().endOf('year')],
+            'Last Year': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1,
+                    'year')
+                .endOf('year')
+            ],
+        }
+    }, cb);
+
+    cb(start, end);
+
+
+});
+
 /**
  * table generator; 
  **/
@@ -125,18 +208,38 @@ let actions = [{
 ]
 
 getAllData(url, "data_list", headers, actions);
-
+/**
+ *get_date_wise_data; 
+ **/
 $(document).on("click", ".search-data", function() {
     let data = $(this).attr("target");
     let url = apiUrl + "get_date_wise_data"
     getDateSearchData(url, data, "data_list", headers, actions)
 })
+/**
+ *get_search_data; 
+ **/
 $(document).on("keyup", "#search_data", function() {
     let data = $(this).val();
     let url = apiUrl + "get_search_data"
     getSearchData(url, data, "data_list", headers, actions)
 })
-
+/**
+ *get_date_range_wise_data; 
+ **/
+$(document).on("click", ".ranges ul li", function() {
+    let data = $("#dateRangePicker").val();
+    let url = apiUrl + "get_date_range_wise_data"
+    getDateRangeSearchData(url, data, "data_list", headers, actions)
+})
+/**
+ *get_custom_date_range_wise_data; 
+ **/
+$(document).on("click", ".applyBtn", function() {
+    let data = $("#dateRangePicker").val();
+    let url = apiUrl + "get_date_range_wise_data"
+    getDateRangeSearchData(url, data, "data_list", headers, actions)
+})
 /**
  * status controll; 
  **/

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SmartFormValidation as ModelsSmartFormValidation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Validator;
 
 class SmartFormValidation extends Controller
@@ -360,6 +361,26 @@ class SmartFormValidation extends Controller
             ], 500);
         }
     }
+
+    public function getDateRangeWiseSearchData(Request $request)
+    {
+        $date = explode('-', $request->value);
+
+        $from =   Carbon::parse($date[0])->format('Y-m-d');
+        $to = Carbon::parse($date[1])->format('Y-m-d');
+
+        $target = ModelsSmartFormValidation::whereDate('created_at', '>=', $from)
+            ->whereDate('created_at', '<=', $to)
+            ->paginate(10);
+        if ($target) {
+            return response([
+                "status" => "success",
+                "data" => $target
+            ], 200);
+        }
+    }
+
+
     public function getSearchData(Request $request)
     {
         try {
