@@ -69,11 +69,19 @@
                                     </span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="intel_marketing_dashboard.html" title="modal" data-filter-tags="modal"
+                                    class=" waves-effect waves-themed">
+                                    <span class="nav-link-text"
+                                        data-i18n="nav.application_intel_marketing_dashboard">MODAL
+                                    </span>
+                                </a>
+                            </li>
 
                         </ul>
                     </li>
                     <li class="">
-                        <a title="Form Validation" data-filter-tags="Form Validation" aria-expanded="true"
+                        <a title="form validation" data-filter-tags="form validation" aria-expanded="true"
                             class=" waves-effect waves-themed">
                             <iconify-icon icon="fa:user-secret" width="15" height="15"></iconify-icon>
                             <span class="nav-link-text mx-1" data-i18n="nav.application_intel">Form Validation</span>
@@ -84,37 +92,52 @@
                         </a>
                         <ul>
                             <li class="active">
-                                <a href="{{url('admin/smart-validation')}}" title="Analytics Dashboard"
-                                    data-filter-tags="application intel analytics dashboard"
-                                    class=" waves-effect waves-themed">
+                                <a href="{{url('admin/smart-validation')}}" title="laravel validation"
+                                    data-filter-tags="laravel validation" class=" waves-effect waves-themed">
                                     <span class="nav-link-text"
-                                        data-i18n="nav.application_intel_analytics_dashboard">1</span>
+                                        data-i18n="nav.application_intel_analytics_dashboard">Laravel Validation</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="intel_marketing_dashboard.html" title="Marketing Dashboard"
-                                    data-filter-tags="application intel marketing dashboard"
-                                    class=" waves-effect waves-themed">
-                                    <span class="nav-link-text"
-                                        data-i18n="nav.application_intel_marketing_dashboard">2</span>
+                                <a href="intel_marketing_dashboard.html" title="js validation"
+                                    data-filter-tags="js validaiton" class=" waves-effect waves-themed">
+                                    <span class="nav-link-text" data-i18n="nav.application_intel_marketing_dashboard">Js
+                                        validation</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="intel_introduction.html" title="Introduction"
-                                    data-filter-tags="application intel introduction"
-                                    class=" waves-effect waves-themed">
-                                    <span class="nav-link-text" data-i18n="nav.application_intel_introduction">3</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="intel_privacy.html" title="Privacy"
-                                    data-filter-tags="application intel privacy" class=" waves-effect waves-themed">
-                                    <span class="nav-link-text" data-i18n="nav.application_intel_privacy">4</span>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>
+                    <li class="">
+                        <a title="notification" data-filter-tags="notification" aria-expanded="true"
+                            class=" waves-effect waves-themed">
+                            <iconify-icon icon="fa:user-secret" width="15" height="15"></iconify-icon>
+                            <span class="nav-link-text mx-1" data-i18n="nav.application_intel">Notification One
+                                Signal</span>
+                            <b class="collapse-sign">
+                                <iconify-icon icon="ep:arrow-down" style="color: white;" width="10" height="10">
+                                </iconify-icon>
+                            </b>
+                        </a>
+                        <ul>
+                            <li class="active">
+                                <a href="{{url('admin/smart-validation')}}" title="custom notitfication"
+                                    data-filter-tags="custom notitfication" class=" waves-effect waves-themed">
+                                    <span class="nav-link-text"
+                                        data-i18n="nav.application_intel_analytics_dashboard">Custom Notification</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="intel_marketing_dashboard.html" title="schedule notitfication"
+                                    data-filter-tags="schedule notitfication" class=" waves-effect waves-themed">
+                                    <span class="nav-link-text"
+                                        data-i18n="nav.application_intel_marketing_dashboard">Schedule
+                                        notitfication</span>
+                                </a>
+                            </li>
 
+                        </ul>
+                    </li>
                 </ul>
                 <div class="filter-message js-filter-message bg-success-600"></div>
             </nav>

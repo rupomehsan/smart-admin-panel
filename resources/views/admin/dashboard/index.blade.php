@@ -13,13 +13,13 @@
     </ol>
     <div class="row">
         <div class="col-md-4">
-            <button>Form Validation One</button>
+            <button class="border p-5 btn btn-success">Smart Crud</button>
         </div>
         <div class="col-md-4">
-            <button>Form Validation One</button>
+            <button class="border p-5  btn btn-warning">Form Validation</button>
         </div>
         <div class="col-md-4">
-            <button>Form Validation One</button>
+            <button class="border p-5  btn btn-secondary">Push Notification</button>
         </div>
     </div>
 

@@ -1,5 +1,10 @@
+
 /* switch  */
 /* switch  */
+.mod-skin-dark:not(.mod-skin-light) .nav-menu li a {
+  border-top: 1px solid #2e2e2e7a;
+  margin: 2px 0px;
+}
 .switch {
     position: relative;
     display: inline-block;

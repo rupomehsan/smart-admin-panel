@@ -237,7 +237,7 @@ function getEditContent(pageId) {
                     tableData.innerHTML = item[key]
                     if (key === 'image') {
                         if (item[key] !== null) {
-                            console.log("yes")
+                            // console.log("yes")
                             let image = item[key]
                             // console.log("iamgeeeeee", image)
                             let imageDiv = `<div class="sidebar-logo"><img src="${image}" class="" alt="logo.png" height="40" width="70"></div>`
