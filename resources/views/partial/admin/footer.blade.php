@@ -902,6 +902,7 @@
 <script src="{{asset('assets/js/vendors.bundle.js')}}"></script>
 <script src="{{asset('assets/js/app.bundle.js')}}"></script>
 <script src="{{asset('assets/js/iconify-icon.min.js')}}"></script>
+<script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
 <script type="text/javascript">
 /* Activate smart panels */
 $('#js-page-content').smartPanel();

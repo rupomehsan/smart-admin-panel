@@ -1,19 +1,14 @@
 <!-- BEGIN Page Wrapper -->
 <div class="page-wrapper">
     <div class="page-inner">
-
         <!-- BEGIN Left Aside -->
-
-
-
         <aside class="page-sidebar">
             <div class="page-logo">
                 <a href="dashboard" class="page-logo-link press-scale-down d-flex align-items-center position-relative">
-                    <img src="https://www.gotbootstrap.com/themes/smartadmin/4.5.1/img/logo.png" alt="SmartAdmin WebApp"
+                    <img src="{{asset('assets/image/profile.jpg')}}" alt="Smart Admin Panel"
                         aria-roledescription="logo">
-                    <span class="page-logo-text mr-1">SmartAdmin WebApp</span>
+                    <span class="page-logo-text mr-1">Smart Admin Panel</span>
                     <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
-
                 </a>
             </div>
             <!-- BEGIN PRIMARY NAVIGATION -->
@@ -30,18 +25,18 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <img src="https://www.gotbootstrap.com/themes/smartadmin/4.5.1/img/demo/avatars/avatar-admin.png"
-                        class="profile-image rounded-circle" alt="Dr. Codex Lantern">
-                    <div class="info-card-text">
+                    <!-- <img src="https://www.gotbootstrap.com/themes/smartadmin/4.5.1/img/demo/avatars/avatar-admin.png"
+                        class="profile-image rounded-circle" alt="Dr. Codex Lantern"> -->
+                    <!-- <div class="info-card-text">
                         <a href="#" class="d-flex align-items-center text-white">
                             <span class="text-truncate text-truncate-sm d-inline-block">
                                 Dr. Codex Lantern
                             </span>
                         </a>
                         <span class="d-inline-block text-truncate text-truncate-sm">Toronto, Canada</span>
-                    </div>
-                    <img src="https://www.gotbootstrap.com/themes/smartadmin/4.5.1/img/card-backgrounds/cover-2-lg.png"
-                        class="cover" alt="cover">
+                    </div> -->
+                    <!-- <img src="https://www.gotbootstrap.com/themes/smartadmin/4.5.1/img/card-backgrounds/cover-2-lg.png"
+                        class="cover" alt="cover"> -->
                     <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle"
                         data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
                         <iconify-icon icon="bxs:down-arrow" style="color: white;" width="10" height="10"></iconify-icon>
@@ -49,10 +44,39 @@
                 </div>
                 <ul id="js-nav-menu" class="nav-menu js-nav-built">
                     <li class="">
-                        <a title="Application Intel" data-filter-tags="application intel" aria-expanded="true"
+                        <a title="smart crud" data-filter-tags="smart crud" aria-expanded="true"
                             class=" waves-effect waves-themed">
                             <iconify-icon icon="fa:user-secret" width="15" height="15"></iconify-icon>
-                            <span class="nav-link-text mx-3" data-i18n="nav.application_intel">Form Validation</span>
+                            <span class="nav-link-text mx-1" data-i18n="nav.application_intel">Smart CRUD</span>
+                            <b class="collapse-sign">
+                                <iconify-icon icon="ep:arrow-down" style="color: white;" width="10" height="10">
+                                </iconify-icon>
+                            </b>
+                        </a>
+                        <ul>
+                            <li class="active">
+                                <a href="{{url('admin/smart-validation')}}" title="custom"
+                                    data-filter-tags="smart crud custom" class=" waves-effect waves-themed">
+                                    <span class="nav-link-text"
+                                        data-i18n="nav.application_intel_analytics_dashboard">CUSTOM</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="intel_marketing_dashboard.html" title="yajra" data-filter-tags="yajra"
+                                    class=" waves-effect waves-themed">
+                                    <span class="nav-link-text"
+                                        data-i18n="nav.application_intel_marketing_dashboard">YAJRA
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a title="Form Validation" data-filter-tags="Form Validation" aria-expanded="true"
+                            class=" waves-effect waves-themed">
+                            <iconify-icon icon="fa:user-secret" width="15" height="15"></iconify-icon>
+                            <span class="nav-link-text mx-1" data-i18n="nav.application_intel">Form Validation</span>
                             <b class="collapse-sign">
                                 <iconify-icon icon="ep:arrow-down" style="color: white;" width="10" height="10">
                                 </iconify-icon>
@@ -64,7 +88,7 @@
                                     data-filter-tags="application intel analytics dashboard"
                                     class=" waves-effect waves-themed">
                                     <span class="nav-link-text"
-                                        data-i18n="nav.application_intel_analytics_dashboard">Smart validation</span>
+                                        data-i18n="nav.application_intel_analytics_dashboard">1</span>
                                 </a>
                             </li>
                             <li>
@@ -72,22 +96,20 @@
                                     data-filter-tags="application intel marketing dashboard"
                                     class=" waves-effect waves-themed">
                                     <span class="nav-link-text"
-                                        data-i18n="nav.application_intel_marketing_dashboard">Marketing
-                                        Dashboard</span>
+                                        data-i18n="nav.application_intel_marketing_dashboard">2</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="intel_introduction.html" title="Introduction"
                                     data-filter-tags="application intel introduction"
                                     class=" waves-effect waves-themed">
-                                    <span class="nav-link-text"
-                                        data-i18n="nav.application_intel_introduction">Introduction</span>
+                                    <span class="nav-link-text" data-i18n="nav.application_intel_introduction">3</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="intel_privacy.html" title="Privacy"
                                     data-filter-tags="application intel privacy" class=" waves-effect waves-themed">
-                                    <span class="nav-link-text" data-i18n="nav.application_intel_privacy">Privacy</span>
+                                    <span class="nav-link-text" data-i18n="nav.application_intel_privacy">4</span>
                                 </a>
                             </li>
                         </ul>
@@ -116,6 +138,4 @@
             </div> <!-- END NAV FOOTER -->
         </aside>
         <!-- END Left Aside -->
-
-
         <div class="page-content-wrapper">

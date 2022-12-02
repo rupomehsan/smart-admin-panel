@@ -26,10 +26,15 @@
     <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/vendors.bundle.css")}}">
     <link id="appbundle" rel="stylesheet" media="screen, print" href="{{asset("assets/css/app.bundle.css")}}">
     <link id="mytheme" rel="stylesheet" media="screen, print" href="#">
+    <!-- sote theme  -->
     <link id="myskin" rel="stylesheet" media="screen, print" href="{{asset("assets/css/skin-master.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/toastr.css")}}">
+    <!-- slector -->
     <link rel="stylesheet" href="{{asset("assets/css/sumoselect.min.css")}}">
+    <!-- daterangepicker -->
     <link rel="stylesheet" href="{{asset("assets/css/daterangepicker.css")}}">
+    <!-- skalylon loader -->
+    <link rel="stylesheet" href="{{asset("assets/css/placeholder-loading.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
 
 </head>

@@ -27,7 +27,7 @@ function formSubmit(url, method, form, button, headers = null) {
             if (response.status === 'success') {
                 toastr.success(response.message);
                 // form[0].reset();
-                // setTimeout(redirectPage, 1000);
+                setTimeout(pageRedirect, 1000);
 
             } else if (response.status == "error") {
                 toastr.warning(response.message)
@@ -334,8 +334,20 @@ function getAllData(url, id, headers, actions = [], searchData = null,) {
             }
         }, error: function (xhr, resp, text) {
             console.log(xhr, resp)
+        },
+        complete:function(){
+            setTimeout(()=>{
+                endLoading()
+            },1000)
         }
     });
+}
+/**
+ * skelytone loader
+ */
+function endLoading() {
+    $('#loader').fadeOut()
+    $('#loader').remove()
 }
 /**
  * GET date search Data
@@ -506,7 +518,10 @@ function deleteItem(url) {
                         console.log(res);
                         if(res.status==="success"){
                             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
-                            // redirectPage()
+                           setTimeout(()=>{
+                            pageRedirect()
+                           },1000)
+                          
                         }
                        
 

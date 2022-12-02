@@ -40,6 +40,7 @@ return new class extends Migration
             $table->json('single_item')->nullable();
             $table->json('multi_item')->nullable();
             $table->json('multi_category_selector')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -51,6 +52,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('smart_form_validations');
+        Schema::drop("smart_form_validations");
     }
 };

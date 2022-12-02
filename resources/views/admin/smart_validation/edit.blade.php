@@ -305,6 +305,9 @@
 <script src="{{asset('validation/smartValidation.js')}}"></script>
 
 <script>
+function pageRedirect() {
+    window.location.href = window.origin + "admin/smart-validation"
+}
 /**
  * ClassicEditor  
  **/

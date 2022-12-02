@@ -25,3 +25,4 @@ Route::post("manage_status_approval", [SmartFormValidation::class, "manageStatus
 Route::post("get_date_wise_data", [SmartFormValidation::class, "getDateWiseSearchData"]);
 Route::post("get_date_range_wise_data", [SmartFormValidation::class, "getDateRangeWiseSearchData"]);
 Route::post("get_search_data", [SmartFormValidation::class, "getSearchData"]);
+Route::post("manage_item_actions", [SmartFormValidation::class, "manageItemActions"]);

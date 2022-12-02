@@ -1034,8 +1034,8 @@ html body a:hover {
     margin: 0;
 }
 .primary-nav .nav-menu:first-of-type {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 .nav-title {
     text-transform: uppercase;
@@ -1410,7 +1410,7 @@ html body a:hover {
 .info-card {
     position: relative;
     width: 16.875rem;
-    height: 9.53rem;
+    height: 20px;
     color: #fff;
     overflow: hidden;
     display: -webkit-box;
@@ -3120,7 +3120,7 @@ html body a:hover {
     display: inline;
     border: 0 !important;
     font-family: "Font Awesome 5 Pro";
-    content: "\f107" !important;
+    /* content: "\f107" !important; */
     vertical-align: top !important;
     position: relative;
 }

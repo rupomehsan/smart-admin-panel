@@ -12,11 +12,13 @@ class SmartFormValidation extends Controller
 
     public function index()
     {
-        // dd("hi");
+
         $target = ModelsSmartFormValidation::paginate(20);
+        // $data = ModelsSmartFormValidation::withTrashed()->get();
         return response([
             "status" => "success",
-            "data" => $target
+            "data" => $target,
+            // "data2" => $data
         ]);
     }
 
@@ -397,6 +399,40 @@ class SmartFormValidation extends Controller
                     "message" => "Data Not Found"
                 ], 200);
             }
+        } catch (\Exception $e) {
+            return response([
+                "status" => "server_error",
+                "message" => $e
+            ], 500);
+        }
+    }
+    public function manageItemActions(Request $request)
+    {
+        try {
+
+
+            if ($request->actions === "active") {
+                foreach ($request->itemList as $item) {
+                    $target = ModelsSmartFormValidation::where('id', $item)->first();
+                    $target->status = "active";
+                    $target->update();
+                }
+            } else if ($request->actions === "deactive") {
+                foreach ($request->itemList as $item) {
+                    $target = ModelsSmartFormValidation::where('id', $item)->first();
+                    $target->status = "deactive";
+                    $target->update();
+                }
+            } else if ($request->actions === "delete") {
+                foreach ($request->itemList as $item) {
+                    $target = ModelsSmartFormValidation::where('id', $item)->first();
+                    $target->delete();
+                }
+            }
+            return response([
+                "status" => "success",
+                "message" => "Items successfully " . $request->actions
+            ], 200);
         } catch (\Exception $e) {
             return response([
                 "status" => "server_error",
