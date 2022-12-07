@@ -21,6 +21,9 @@
         <div class="col-md-4">
             <button class="border p-5  btn btn-secondary">Push Notification</button>
         </div>
+        <div class="col-md-4">
+            <button class="border p-5  btn btn-secondary">Push testing</button>
+        </div>
     </div>
 
 </main>
